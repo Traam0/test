@@ -1,8 +1,8 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import { GetServerSideProps } from "next";
-import upath from "upath";
 import fs from "fs";
+import path from "path";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const path = upath.join(process.cwd(), "/public");
+  const filepath = path.join(process.cwd(), "/public");
   const filecontent = `
 export default function Home() {
   return (
@@ -121,7 +121,7 @@ export default function Home() {
 }
 `;
 
-  fs.writeFileSync(upath.join(path, "file.txt"), filecontent);
+  fs.writeFileSync(path.join(filepath, "file.txt"), filecontent);
 
   return {
     props: {},
