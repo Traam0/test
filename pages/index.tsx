@@ -1,7 +1,7 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import { GetServerSideProps } from "next";
-import fs from "fs";
+import fs from "fs" ;
 import path from "path";
 
 const geistSans = localFont({
@@ -121,7 +121,7 @@ export default function Home() {
 }
 `;
 
-  fs.writeFileSync(path.join(filepath, "file.txt"), filecontent);
+  fs.writeFileSync(path.join(filepath, "file2.txt"), filecontent);
 
   return {
     props: {},
